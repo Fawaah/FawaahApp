@@ -62,7 +62,7 @@ class CartIcon extends StatelessWidget with ActionButtonMixin {
         padding: const EdgeInsets.symmetric(horizontal: 2),
         child: Icon(
           Icons.add_circle,
-          // size: 18.0,
+           // size: 20.0,
           color: Theme.of(context).primaryColor,
         ),
       ),

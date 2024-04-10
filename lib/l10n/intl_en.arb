@@ -10,6 +10,7 @@
 	"addToCart": "Add To Cart ",
 	"description": "Description",
 	"readReviews": "Reviews",
+	"confirmRemoveProductInCart": "Are you sure you want to remove this product?",
 	"additionalInformation": "Additional Information",
 	"noReviews": "No Reviews",
 	"productAdded": "The product is added",
@@ -910,6 +911,6 @@
 	"featureNotAvailable": "Feature not available",
 	"wholesaleRegisterMsg": "Please reach out to the administrator to approve your registration.",
 	"notFindResult": "Sorry, we couldn't find any results.",
-	"sureThatProductExists": "Check that the products in the cart are still available"
-	"searchByCountryNameOrDialCode": "Search by country name or dial code",
+	"sureThatProductExists": "Check that the products in the cart are still available",
+	"searchByCountryNameOrDialCode": "Search by country name or dial code"
 }

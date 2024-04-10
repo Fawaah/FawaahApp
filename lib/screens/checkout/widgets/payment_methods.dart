@@ -5,6 +5,7 @@ import 'package:collection/collection.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:quiver/strings.dart';
@@ -92,7 +93,9 @@ class _PaymentMethodsState extends State<PaymentMethods> with RazorDelegate {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(S.of(context).paymentMethods,
-                        style: const TextStyle(fontSize: 16)),
+                        style:  TextStyle(fontSize: 16,
+                          fontFamily: GoogleFonts.cairo().fontFamily,
+                        )),
                     const SizedBox(height: 5),
                     Text(
                       S.of(context).chooseYourPaymentMethod,

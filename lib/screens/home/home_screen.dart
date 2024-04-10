@@ -69,7 +69,8 @@ class _HomeScreenState extends BaseScreen<HomeScreen> {
             bannerConfig.popup.alwaysShowUponOpen;
 
         return Scaffold(
-          backgroundColor: Theme.of(context).colorScheme.background,
+           backgroundColor:   Theme.of(context).brightness == Brightness.dark? Theme.of(context).colorScheme.background: Colors.grey.withOpacity(.1),
+          // backgroundColor: Colors.grey.withOpacity(.5),
           body: Stack(
             children: <Widget>[
               if (appConfig.background != null)

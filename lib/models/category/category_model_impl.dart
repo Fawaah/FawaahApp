@@ -89,7 +89,8 @@ class CategoryModelImpl extends CategoryModel {
         result.removeWhere((key, value) => key == categoryId);
       }
     }
-    items.addAll(result);
+    //hokshedit
+   // items.addAll(result);
     result = items;
     categoryList = Map<String?, Category>.from(result);
     _categories = result.values.toList();

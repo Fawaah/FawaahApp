@@ -65,8 +65,13 @@ void main() {
     /// get language code default
     var languageCode = kAdvanceConfig.defaultLanguage;
 
-    /// Init Hive boxes.
-    await initBoxes();
+    try{
+      await initBoxes();
+
+    }catch(e){
+      print("messagrr${e}");
+    }
+
 
     if (!foundation.kIsWeb) {
       /// Enable network traffic logging.

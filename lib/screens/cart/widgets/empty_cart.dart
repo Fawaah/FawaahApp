@@ -102,8 +102,8 @@ class EmptyCart extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             elevation: 0,
                             minimumSize: const Size.fromHeight(50),
-                            foregroundColor: kGrey400,
-                            backgroundColor: kGrey200,
+                            // foregroundColor: kGrey400,
+                            backgroundColor: Theme.of(context).brightness == Brightness.dark?kGrey400.withOpacity(.5):Colors.white,
                           ),
                           onPressed: () {
                             NavigateTools.navigateToRootTab(
@@ -113,7 +113,7 @@ class EmptyCart extends StatelessWidget {
                           },
                           child:
                               Text(S.of(context).searchForItems.toUpperCase(),style: Theme.of(context).textTheme.bodySmall?.copyWith(color:
-                              Theme.of(context).brightness == Brightness.dark?Colors.grey[900]:Colors.teal[900],)
+                              Theme.of(context).brightness == Brightness.dark?Colors.white:Colors.teal[900],)
                               ),
                         ),
                       ),

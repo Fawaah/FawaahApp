@@ -97,7 +97,7 @@ class _BrandsScreenState extends State<BrandsScreen> {
     return Scaffold(
       // backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).brightness == Brightness.dark?const Color(0xFF546E7A):Theme.of(context).primaryColor,
+        backgroundColor: Theme.of(context).brightness == Brightness.dark?Theme.of(context).primaryColor:Theme.of(context).primaryColor,
         title: Center(
           child: Text(
             S.of(context).allBrands,
@@ -170,24 +170,34 @@ class _BrandsScreenState extends State<BrandsScreen> {
                     ),
                   ),
                 ),
-                content: ListView.builder(
+
+                content: ListView.separated(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     var brand = letterBrandsList[index];
                     return ListTile(
                       dense: true,
+                      // trailing:                             Divider(height: 1,color: Colors.white,),
+
                       // splashColor: Colors.white,
                       title: Center(
-                        child: Text(
-                          brand,
+                        child: Column(
+                          children: [
+                            Text(
+                              brand,
+                            )
+                          ],
                         ),
                       ),
                       onTap: () => gotoSearch(brand),
                       // trailing: const Icon(Icons.arrow_forward_ios),
                     );
                   },
-                  itemCount: letterBrandsList.length,
+                  itemCount: letterBrandsList.length, separatorBuilder: (BuildContext context, int index) {
+
+                    return Divider(height: 1,color: Theme.of(context).brightness == Brightness.dark? Color(0xff292d39):Color(0xf292d39),);
+                },
                 ),
               );
             },

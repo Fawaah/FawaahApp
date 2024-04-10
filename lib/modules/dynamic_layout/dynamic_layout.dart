@@ -172,6 +172,7 @@ class DynamicLayout extends StatelessWidget {
         return BannerGroupItems(
           config: BannerConfig.fromJson(config),
           onTap: (itemConfig) {
+            print("dfdsfdsf");
             NavigateTools.onTapNavigateOptions(
               context: context,
               config: itemConfig,

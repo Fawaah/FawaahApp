@@ -197,7 +197,8 @@ class _SimpleLayoutState extends State<SimpleLayout>
                                                 _selectIndexNotifier.value =
                                                     index;
                                               })
-                                          : ProductImageSlider(
+                                          :
+                                  ProductImageSlider(
                                               product: item,
                                               onChange: (index) {
                                                 _selectIndexNotifier.value =

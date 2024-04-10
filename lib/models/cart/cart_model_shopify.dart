@@ -1,9 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../common/config.dart';
 import '../../common/tools.dart';
 import '../../generated/l10n.dart';
+import '../../screens/checkout/widgets/selected_country_model.dart';
 import '../../services/services.dart';
 import '../index.dart';
 import '../mixins/language_mixin.dart';
@@ -238,15 +240,18 @@ class CartModelShopify
 
   @override
   void setAddress(data, {String? isoCode}) {
+    print("objectnmnm${isoCode}");
     address = data;
     final selectedIsoCode = isoCode ?? kPhoneNumberConfig.countryCodeDefault;
-    saveShippingAddress(data, selectedIsoCode);
-
+     saveShippingAddress(data, selectedIsoCode);
     // it's a guest checkout or user not logged in
+
+
     if (checkout?.email == null) {
       Services().api.updateCheckoutEmail(
           checkoutId: checkout?.id, email: address?.email ?? '');
     }
+
   }
 
   @override

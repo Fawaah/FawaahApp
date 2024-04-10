@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../models/entities/product.dart';
@@ -38,6 +39,8 @@ class CartButton extends StatelessWidget with ActionButtonMixin {
         S.of(context).addToCart,
         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
               color: Colors.white,
+          fontFamily: GoogleFonts.cairo().fontFamily,
+
             ),
       ),
     );

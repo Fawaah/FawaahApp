@@ -85,8 +85,8 @@ class CategoryImageItem extends StatelessWidget {
                         commonConfig.boxShadow!.x, commonConfig.boxShadow!.y),
                   )
               ]),
-          width: itemWidth,
-          height: height ?? 180.0,
+          width: 75,
+          // height: 100 ?? 180.0,
           padding: EdgeInsets.symmetric(
             horizontal: commonConfig.paddingX,
             vertical: commonConfig.paddingY,
@@ -101,8 +101,9 @@ class CategoryImageItem extends StatelessWidget {
               Expanded(
                 child: Container(
                   width: itemWidth,
+
                   decoration: commonConfig.imageDecoration,
-                  padding: EdgeInsets.all(commonConfig.imageSpacing),
+                   padding: EdgeInsets.all(commonConfig.imageSpacing),
                   child: ClipRRect(
                     borderRadius:
                         BorderRadius.circular(commonConfig.radius ?? 0.0),

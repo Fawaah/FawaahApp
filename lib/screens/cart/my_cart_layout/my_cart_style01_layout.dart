@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:inspireui/inspireui.dart';
 import 'package:provider/provider.dart';
 
@@ -137,7 +138,7 @@ class _MyCartStyle01LayoutState extends State<MyCartStyle01Layout>
                                     child: Image.asset(
                                       'assets/images/trash.png',
                                       width: 20.0,
-                                      color:  Theme.of(context).brightness == Brightness.dark?const Color(0xff3fc1be):Colors.white,
+                                      color:  Theme.of(context).brightness == Brightness.dark?const Color(0xff3fc1be):Theme.of(context).primaryColor,
                                     ),
                                   ),
                                 ),
@@ -378,11 +379,14 @@ class RenderTotalPrice extends StatelessWidget {
                                     )
                                   : Text(
                                       S.of(context).checkout,
-                                      style: style.copyWith(fontSize: 16),
+                                      style: style.copyWith(fontSize: 16,
+                                        fontFamily: GoogleFonts.cairo().fontFamily,
+
+                                      ),
                                     ))
                               : Text(
                                   S.of(context).startShopping.toUpperCase(),
-                                  style: style.copyWith(fontSize: 16),
+                                  style: style.copyWith(fontSize: 16,                         fontFamily: GoogleFonts.cairo().fontFamily),
                                 ),
                         );
                       },

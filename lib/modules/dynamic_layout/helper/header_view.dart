@@ -32,7 +32,7 @@ class HeaderView extends StatelessWidget {
     return SizedBox(
       width: screenSize.width,
       child: Container(
-        color: Theme.of(context).colorScheme.background,
+        color:Theme.of(context).brightness == Brightness.dark? Theme.of(context).colorScheme.background:Colors.transparent,
         margin: EdgeInsets.only(top: verticalMargin!),
         padding: EdgeInsets.only(
           left: horizontalMargin ?? 16.0,

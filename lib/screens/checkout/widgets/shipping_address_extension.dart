@@ -1,10 +1,23 @@
 part of 'shipping_address.dart';
 
 extension on _ShippingAddressState {
-  void updateAddress(Address? newAddress) {
+  void updateAddress(Address? newAddress,) {
     address = newAddress;
+    print("fdgdfgfdg${newAddress!.toJson()}");
+//
     loadUserInfoFromAddress(newAddress);
     loadAddressFields(address);
+
+    // selectedCountryModel.selectedIsoCode=address!.country!;
+    // selectedCountryModel.
+    // selectedIsoCodeListener();
+    // Provider.of<CartModel>(context, listen: false).setAddress(
+    //   address,
+    //   isoCode: selectedCountryModel.selectedIsoCode,
+    // );
+    // setState(() {
+    //
+    // });
   }
 
   void loadUserInfoFromAddress(Address? address) {
@@ -19,6 +32,8 @@ extension on _ShippingAddressState {
   }
 
   void loadAddressFields(Address? address) {
+
+    print("zxzxzxzxzxzxobject ${address}");
     _textControllers[AddressFieldType.country]?.text =
         address?.country?.trim() ?? '';
     _textControllers[AddressFieldType.state]?.text =
@@ -81,11 +96,16 @@ extension on _ShippingAddressState {
 
   void saveDataToLocal() {
     var listAddress = <Address>[];
+
+
     final address = this.address;
+    print("sdasdasdsa${address?.city}");
     if (address != null) {
       listAddress.add(address);
     }
     var listData = AddressBox().addresses;
+    // print("fdsfdsfdsf${listData.first}");
+    //
     if (listData.isNotEmpty) {
       for (var item in listData) {
         listAddress.add(item);
@@ -124,7 +144,8 @@ extension on _ShippingAddressState {
         _formKey.currentState!.save();
 
         await Future.delayed(const Duration(milliseconds: 1000));
-
+        phoneNumecode= selectedCountryModel.selectedIsoCode;
+        // selectedCountryModel.selectedIsoCode=phoneNumecode;
         Provider.of<CartModel>(context, listen: false).setAddress(
           address,
           isoCode: selectedCountryModel.selectedIsoCode,
@@ -322,6 +343,8 @@ extension on _ShippingAddressState {
       );
 
   void onTextFieldSaved(String? value, AddressFieldType type) {
+
+    print("hokshvalue${value}");
     switch (type) {
       case AddressFieldType.firstName:
         address?.firstName = value;
@@ -448,11 +471,18 @@ extension on _ShippingAddressState {
                 if (!checkToSave()) return;
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
-                  Provider.of<CartModel>(context, listen: false).setAddress(
-                    address,
-                    isoCode: selectedCountryModel.selectedIsoCode,
+
+                  print("objectcxcx${address!.toJson()}");
+
+                  Provider.of<CartModel>(context, listen: false).saveShippingAddress(
+                  address,
+                   selectedCountryModel.selectedIsoCode,
                   );
-                  saveDataToLocal();
+                  FlashHelper.message(
+                    context,
+                    message: S.of(context).yourAddressHasBeenSaved,
+                  );
+                  // saveDataToLocal();
                 } else {
                   FlashHelper.errorMessage(
                     context,

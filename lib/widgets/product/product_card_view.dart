@@ -81,6 +81,7 @@ class _ProductCardState extends State<ProductCard> with ActionButtonMixin {
           hide: widget.config.hideTitle,
           maxLines: widget.config.titleLine,
         ),
+
         StoreName(product: widget.item, hide: widget.config.hideStore),
         const SizedBox(height: 5),
         // Spacer(),
@@ -95,6 +96,7 @@ class _ProductCardState extends State<ProductCard> with ActionButtonMixin {
                 children: <Widget>[
                   Expanded(
                     child: Column(
+                      mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const SizedBox(height: 2),
@@ -109,10 +111,11 @@ class _ProductCardState extends State<ProductCard> with ActionButtonMixin {
                           product: widget.item,
                           show: widget.config.showCountDown,
                         ),
-                        ProductPricing(
+                        Padding(padding: EdgeInsets.only(bottom: 10),child:  ProductPricing(
                           product: widget.item,
                           hide: widget.config.hidePrice,
-                        ),
+                        ),)
+                       ,
                       ],
                     ),
                   ),
@@ -159,6 +162,7 @@ class _ProductCardState extends State<ProductCard> with ActionButtonMixin {
           onTapProduct(context, product: widget.item, config: widget.config),
       behavior: HitTestBehavior.opaque,
       child: Card(
+        //
         // color: Colors.white,
         shadowColor: Colors.transparent,
         child: AnimatedContainer(
@@ -172,7 +176,7 @@ class _ProductCardState extends State<ProductCard> with ActionButtonMixin {
           child: Stack(
             children: [
               Container(
-                padding: const EdgeInsets.only(bottom: 8),
+                padding: const EdgeInsets.only(bottom: 20),
                 decoration: BoxDecoration(
                   borderRadius:
                       BorderRadius.circular(widget.config.borderRadius ?? 3),

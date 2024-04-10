@@ -87,6 +87,7 @@ class ProductGrid extends StatelessWidget {
           return Services().widget.renderProductCardView(
                 item: productList[i],
                 width: productWidth,
+
                 maxWidth: Layout.buildProductMaxWidth(
                     context: context, layout: config.layout),
                 ratioProductImage: ratioProductImage,

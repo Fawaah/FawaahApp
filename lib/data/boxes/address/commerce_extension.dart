@@ -7,6 +7,7 @@ extension AddressCommerceSettingsExtension on AddressBox {
       defaultValue: null,
     );
     return rawData != null ? Address.fromLocalJson(rawData) : null;
+
   }
 
   void setShippingAddress(Address? value, String isoCode) {
@@ -21,7 +22,9 @@ extension AddressCommerceSettingsExtension on AddressBox {
   List<Address> get addresses {
     final rawData = box.values;
     final listAddress = <Address>[];
-    if (rawData is List) {
+    // print("dfsdfsd");
+
+    // if (rawData is List) {
       for (var item in rawData) {
         Address? address;
 
@@ -35,17 +38,44 @@ extension AddressCommerceSettingsExtension on AddressBox {
           listAddress.add(address);
         }
       }
-    }
+  //  }
 
     return listAddress;
   }
 
-  set addresses(List<Address>? value) {
+  set addresses(List<Address>? value)  {
+    // if (value == null) {
+    //   box.clear();
+    //   return;
+    // }
+    //
+    //
+    // final rawData = value.map((e) => e.toJsonEncodable()).toList();
+    // print("dsfdsfds${value}");
+    // box.addAll(rawData);
+
+    this.addresses=addresses;
+
+
+
+
+  }
+
+  removeAdresses(Address value) async {
+
     if (value == null) {
       box.clear();
       return;
     }
-    final rawData = value.map((e) => e.toJsonEncodable()).toList();
-    box.addAll(rawData);
+
+
+    // final rawData = value.map((e) => e.toJsonEncodable()).toList();
+    // print("dsfdsfds${value}");
+    // await box.clear();
+
+   await box.delete(value.country);
   }
+
+
+
 }

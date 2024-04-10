@@ -287,7 +287,7 @@ class MainTabsState extends CustomOverlayState<MainTabs>
     final notchMargin = tabBarFloating.notchMargin;
 
     printLog('[ScreenSize]: ${media.size.width} x ${media.size.height}');
-
+//
     return SideMenu(
       backgroundColor:
           showFloating ? null : Theme.of(context).colorScheme.background,

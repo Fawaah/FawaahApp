@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../common/config.dart';
@@ -258,6 +259,8 @@ class _CheckoutState extends BaseScreen<Checkout> {
             title: Text(
               S.of(context).checkout,
               style: TextStyle(
+                fontFamily: GoogleFonts.cairo().fontFamily,
+
                 color: Theme.of(context).colorScheme.secondary,
                 fontWeight: FontWeight.w400,
               ),
@@ -487,9 +490,9 @@ class _CheckoutState extends BaseScreen<Checkout> {
   /// tabIndex: 3
   void goToPaymentTab([bool isGoingBack = false]) {
     if (!isGoingBack) {
-      setState(() {
-        tabIndex = 3;
-      });
+      // setState(() {
+      //   tabIndex = 3;
+      // });
     }
   }
 

@@ -115,7 +115,8 @@ class ProductDetailConfig {
     showProductCategories = config['showProductCategories'] ?? true;
     showProductTags = config['showProductTags'] ?? true;
     hideInvalidAttributes = config['hideInvalidAttributes'] ?? false;
-    showImageGallery = config['ShowImageGallery'] ?? false;
+    showImageGallery =  false;
+    // showImageGallery = config['ShowImageGallery'] ?? false;
     autoPlayGallery = config['autoPlayGallery'] ?? false;
     allowMultiple = config['allowMultiple'] ?? false;
     showBrand = config['showBrand'] ?? false;
@@ -128,7 +129,9 @@ class ProductDetailConfig {
     boxFit = config['boxFit'] ?? 'cover';
     sliderShowGoBackButton = config['SliderShowGoBackButton'] ?? true;
     sliderIndicatorType =
-        '${config['SliderIndicatorType']}'.toSliderIndicatorType();
+        SliderIndicatorType.dot;
+    // sliderIndicatorType =
+    //     '${config['SliderIndicatorType']}'.toSliderIndicatorType();
     productMetaDataKey = config['productMetaDataKey'] ?? '';
     showRelatedProductFromSameStore =
         config['showRelatedProductFromSameStore'] ?? true;

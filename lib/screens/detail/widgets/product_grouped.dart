@@ -1,5 +1,6 @@
 import 'package:async/async.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../../common/config.dart';
@@ -96,9 +97,10 @@ class _GroupedProductState extends State<GroupedProduct> {
         child: Center(
           child: Text(
             S.of(context).addToCart.toUpperCase(),
-            style: const TextStyle(
+            style:  TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
+              fontFamily: GoogleFonts.cairo().fontFamily,
             ),
           ),
         ),

@@ -430,6 +430,24 @@ class DefaultConfig {
       'required': true,
       'defaultValue': '',
     },
+
+    {
+      'type': 'apartment',
+      'visible': true,
+      'position': 8,
+      'editable': true,
+      'required': true,
+      'defaultValue': '',
+    },
+    {
+      'type': 'block',
+      'visible': true,
+      'position': 8,
+      'editable': true,
+      'required': true,
+      'defaultValue': '',
+    },
+
     {
       'type': 'fullAddress',
       'visible': true,

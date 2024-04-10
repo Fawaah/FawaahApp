@@ -22,13 +22,14 @@ extension CommonItemExtension on CommonItemConfig {
   Decoration getImageDecoration() {
     if (borderStyle == ImageBorderStyle.dot && hasBorder) {
       return DottedDecoration(
-          borderRadius: BorderRadius.circular(radius ?? 0.0),
-          shape: Shape.box,
+          // borderRadius: BorderRadius.circular(radius ?? 0.0),
+          shape: Shape.circle,
           color: borderColor,
           dash: const [3, 3],
           strokeWidth: imageBorderWidth!);
     }
     return BoxDecoration(
+      shape: BoxShape.circle,
       border: imageBorder,
       borderRadius: BorderRadius.circular(radius ?? 0.0),
     );

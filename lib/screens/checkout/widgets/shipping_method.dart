@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:quiver/strings.dart';
@@ -30,14 +31,14 @@ import 'product_review.dart';
 class ShippingMethods extends StatefulWidget {
   final Function? onBack;
   final Function? onNext;
-  final Function? onFinish;
-  final Function(bool)? onLoading;
+  final Function onFinish;
+  final Function(bool) onLoading;
 
   const ShippingMethods({
     this.onBack,
     this.onNext,
-    this.onFinish,
-    this.onLoading,
+    required this.onFinish,
+    required this.onLoading,
   });
 
   @override
@@ -191,6 +192,8 @@ class _ShippingMethodsState extends State<ShippingMethods> {
   }
 
   Widget _buildShippingMethod(BuildContext context, ShippingMethodModel model) {
+    var langCode = Provider.of<AppModel>(context, listen: false).langCode;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -223,7 +226,8 @@ class _ShippingMethodsState extends State<ShippingMethods> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Services().widget.renderShippingPaymentTitle(
-                                context, model.shippingMethods![i].title!),
+
+                                context, langCode=="ar"?"الأساسي": model.shippingMethods![i].title!),
                             const SizedBox(height: 5),
                             if (model.shippingMethods![i].cost! > 0.0 ||
                                 !isNotBlank(
@@ -317,7 +321,7 @@ class _ShippingMethodsState extends State<ShippingMethods> {
                         shippingTier: cartModel.shippingMethod?.methodTitle,
                       ));
 
-                  //widget.onNext!();
+                  widget.onNext!();
                   /*widget.onNext!(),*/
                   if (note.text.isNotEmpty) {
                     cartModel.setOrderNotes(note.text);
@@ -326,8 +330,11 @@ class _ShippingMethodsState extends State<ShippingMethods> {
                   final currencyRate =
                       Provider.of<AppModel>(context, listen: false)
                           .currencyRate;
+//hokshedit
+                  if( widget.onLoading!=null){
+                    widget.onLoading(true);
 
-                  widget.onLoading!(true);
+                  }
                   isPaying = true;
                   if (paymentMethodModel.paymentMethods.isNotEmpty) {
                     final paymentMethod = paymentMethodModel.paymentMethods
@@ -339,6 +346,8 @@ class _ShippingMethodsState extends State<ShippingMethods> {
                       onLoading: widget.onLoading,
                       paymentMethod: paymentMethod,
                       success: (Order? order) async {
+
+                        print("successsspayment");
                         if (order != null) {
                           for (var item in order.lineItems) {
                             var product =
@@ -351,7 +360,7 @@ class _ShippingMethodsState extends State<ShippingMethods> {
                                           booking ? 'Booking success!' : 'Booking error!');
                                     }*/
                           }
-                          widget.onFinish!(order);
+                          widget.onFinish(order);
                         }
                         widget.onLoading?.call(false);
                         isPaying = false;
@@ -373,7 +382,7 @@ class _ShippingMethodsState extends State<ShippingMethods> {
                 // If this order doesn't need ship, we can go to the next step
                 if ((shippingMethodModel.shippingMethods?.isEmpty ?? true) &&
                     (shippingMethodModel.message?.isEmpty ?? true)) {
-                  //widget.onNext!();
+                  widget.onNext!();
                   final cartModel =
                   Provider.of<CartModel>(context, listen: false);
                   /*widget.onNext!(),*/
@@ -435,7 +444,7 @@ class _ShippingMethodsState extends State<ShippingMethods> {
               label: Text((kPaymentConfig.enableReview
                   ? S.of(context).continueToReview
                   : S.of(context).continueToPayment)
-                  .toUpperCase()),
+                  .toUpperCase(),style: TextStyle(fontFamily:GoogleFonts.cairo().fontFamily),),
             ),
           ),
         ],

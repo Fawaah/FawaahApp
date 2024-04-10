@@ -89,9 +89,9 @@ class _ForgotPasswordState extends State<ForgotPasswordScreen> {
                   const SizedBox(
                     height: 40.0,
                   ),
-                  const Icon(
+                   Icon(
                     Icons.vpn_key,
-                    color: Colors.orangeAccent,
+                    color: Theme.of(context).primaryColor,
                     size: 70.0,
                   ),
                   const SizedBox(

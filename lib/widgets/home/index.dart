@@ -41,12 +41,10 @@ class HomeLayout extends StatefulWidget {
   @override
   State<HomeLayout> createState() => _HomeLayoutState();
 }
-
 class _HomeLayoutState extends State<HomeLayout> with AppBarMixin {
   late List widgetData;
   dynamic verticalWidgetData;
   var _useNestedScrollView = true;
-
   bool isPreviewingAppBar = false;
 
   bool cleanCache = false;
@@ -54,6 +52,7 @@ class _HomeLayoutState extends State<HomeLayout> with AppBarMixin {
   @override
   void initState() {
     /// init config data
+    ///   Icons.
     widgetData =
         List<Map<String, dynamic>>.from(widget.configs['HorizonLayout']);
     if (widgetData.isNotEmpty && widget.isShowAppbar && !widget.showNewAppBar) {
@@ -197,6 +196,7 @@ class _HomeLayoutState extends State<HomeLayout> with AppBarMixin {
       if (foundation.kReleaseMode) {
         return const SizedBox();
       }
+      //
       return Container(
         constraints: const BoxConstraints(minHeight: 150),
         decoration: BoxDecoration(

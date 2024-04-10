@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../common/constants.dart';
 import '../../common/tools.dart';
@@ -162,10 +163,16 @@ class WishlistItem extends StatelessWidget {
                                                 .of(context)
                                                 .download
                                                 .toUpperCase())
-                                            : Text(S
+                                            : Text(
+
+                                            S
                                                 .of(context)
                                                 .addToCart
-                                                .toUpperCase()),
+                                                .toUpperCase(),
+                                        style: TextStyle(
+
+                                          fontFamily: GoogleFonts.cairo().fontFamily,
+                                        ),),
                                       ),
                                     ),
                                 ],

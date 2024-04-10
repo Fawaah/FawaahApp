@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fstore/common/constants.dart';
 import 'package:fstore/common/events.dart';
 import 'package:fstore/generated/l10n.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ChatAuth extends StatefulWidget {
   const ChatAuth({super.key});
@@ -47,7 +48,9 @@ class _ChatAuthState extends State<ChatAuth> {
               const SizedBox(height: 24.0),
               ElevatedButton(
                 onPressed: _handleLogin,
-                child: Text(S.of(context).signIn),
+                child: Text(S.of(context).signIn,style:  TextStyle(
+                  fontFamily: GoogleFonts.cairo().fontFamily,
+                ),),
               ),
               const SizedBox(height: 16.0),
               TextButton(

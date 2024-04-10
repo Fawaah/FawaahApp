@@ -1479,31 +1479,31 @@ Map<String, dynamic> environment = {
           'visible': true,
           'position': 9,
         },
-        {
-          'type': 'block2',
-          'visible': true,
-          'position': 10,
-          'editable': true,
-          'required': false,
-          'defaultValue': '',
-        },
+
         {
           'type': 'apartment',
           'visible': true,
-          'position': 11,
+          'position': 10,
           'editable': true,
           'required': false,
         },
         {
           'type': 'block',
           'visible': true,
-          'position': 12,
+          'position': 11,
           'editable': true,
           'required': false,
           'defaultValue': '',
         },
         {
           'type': 'street',
+          'visible': true,
+          'position': 12,
+          'editable': true,
+          'required': false,
+          'defaultValue': '',
+        }, {
+          'type': 'block2',
           'visible': true,
           'position': 13,
           'editable': true,
@@ -1533,7 +1533,7 @@ Map<String, dynamic> environment = {
           if (province != null) 'province': province,
           if (city != null) 'city': city,
           'address1':
-              'Area: $city, Block: $block2, Street: $apartment, Building: $block, ${(street ?? '') == '' ? '' : 'Floor: $street, '} ${(street ?? '') == '' ? '' : 'Flat: $zipCode'}',
+              'Area: $city, Block: $block2, Street: $apartment, Building: $block, ${(street ?? '') == '' ? '' : 'Floor: $street, '} ${(street ?? '') == '' ? '' : 'Flat: $block2'}',
           'address2': '${block!}, ${block2 ?? ''}',
         };
       },

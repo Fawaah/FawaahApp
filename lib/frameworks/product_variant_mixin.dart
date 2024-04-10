@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../common/config.dart';
@@ -490,10 +491,11 @@ Widget actionButton(
               child: Center(
                 child: Text(
                   S.of(context).addToCart.toUpperCase(),
-                  style: const TextStyle(
+                  style:  TextStyle(
                     color:
                         Colors.white, //Theme.of(context).colorScheme.secondary,
                     fontWeight: FontWeight.bold,
+                    fontFamily: GoogleFonts.cairo().fontFamily,
                     fontSize: 12,
                   ),
                 ),

@@ -35,14 +35,14 @@
 	"shipping": "التوصيل",
 	"review": "تأكيد",
 	"payment": "الدفع",
-	"firstName": "الاسم",
-	"lastName": "اللقب",
+	"firstName": "الأسم الأول",
+	"lastName": "الأسم الأخير",
 	"city": "المدينة",
 	"area": "المنطقة",
 	"stateProvince": "المحافظة",
     "zipCode": "الرمز البريدي",
 	"flat": "الشقة",
-    "block2": "القطعة",
+    "block2": "الشقه",
 	"country": "البلد",
 	"phoneNumber": "رقم الهاتف",
 	"email": "البريد الإلكتروني",
@@ -910,6 +910,7 @@
 	"quantityProductExceedInStock": "الكمية الحالية أكبر من الكمية الموجودة في المخزون",
 	"useMaximumPointDiscount": "استخدم {maxPointDiscount} نقطة كحد أقصى للحصول على خصم {maxPriceDiscount} على هذا الطلب!",
 	"wholesaleRegisterMsg": "يرجى التواصل مع المسؤول للموافقة على تسجيلك.",
-	"sureThatProductExists": "تاكد من المنتجات في السلة لازالت متوفرة"
+	"sureThatProductExists": "تاكد من المنتجات في السلة لازالت متوفرة",
 	"searchByCountryNameOrDialCode": "البحث بالاسم البلد أو رمز الاتصال",
+	"confirmRemoveProductInCart": "هل أنت متأكد من أنك تربد حذف هذا المنتج؟"
 }

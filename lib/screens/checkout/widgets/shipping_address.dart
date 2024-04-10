@@ -25,7 +25,7 @@ import '../choose_address_screen.dart';
 import 'selected_country_model.dart';
 
 part 'shipping_address_extension.dart';
-
+//
 class ShippingAddress extends StatefulWidget {
   const ShippingAddress({this.onNext});
 
@@ -36,7 +36,7 @@ class ShippingAddress extends StatefulWidget {
 }
 
 class _ShippingAddressState extends State<ShippingAddress> {
-  late final selectedCountryModel =
+  late SelectedCountryModel selectedCountryModel =
   Provider.of<SelectedCountryModel>(context, listen: false);
 
   String get langCode => Provider.of<AppModel>(context, listen: false).langCode;
@@ -103,7 +103,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
   }
 
   void initializeFields() {
-    countryFields = Configurations.addressFields.firstWhereOrNull(
+    countryFields = Configurations.addressFields.lastWhereOrNull(
           (element) => element.country == selectedCountryModel.selectedIsoCode,
     );
 
@@ -124,6 +124,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
       selectedCountryModel.selectedIsoCode,
     );
     if (addressValue != null) {
+      print("xzczxcxzcv${addressValue.toJson()}");
       updateAddress(addressValue);
     } else {
       var user = Provider.of<UserModel>(context, listen: false).user;
@@ -247,6 +248,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
   }
 
   void selectedIsoCodeListener() async {
+    print("dfdsfd${selectedCountryModel.selectedIsoCode}");
     final isoCode = selectedCountryModel.selectedIsoCode;
     if (isoCode != address?.country) {
       disposeOldData();
@@ -356,6 +358,8 @@ class _ShippingAddressState extends State<ShippingAddress> {
                           final result = await Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => PlacePicker(
+
+
                                 kIsWeb
                                     ? kGoogleApiKey.web
                                     : isIos
@@ -428,22 +432,29 @@ class _ShippingAddressState extends State<ShippingAddress> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ChooseAddressScreen(updateAddress),
+                      builder: (context) => ChooseAddressScreen((address){
+                        phoneNumecode=address!.country!;
+                        selectedCountryModel.selectedIsoCode=phoneNumecode;
+                        preFillData();
+                      }),
                     ),
                   );
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    const Icon(
+                     Icon(
+                      color:  Colors.grey,
                       CupertinoIcons.person_crop_square,
                       size: 16,
                     ),
                     const SizedBox(width: 10.0),
                     Text(
                       S.of(context).selectAddress.toUpperCase(),
-                      style:Theme.of(context).textTheme.bodySmall?.copyWith(color:
-                      Theme.of(context).brightness == Brightness.dark? Theme.of(context).colorScheme.secondary: Theme.of(context).colorScheme.primary),
+                      style:Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey
+                      // Theme.of(context).brightness == Brightness.dark? Theme.of(context).colorScheme.secondary: Theme.of(context).colorScheme.primary
+                      //
+                      ),
 
 
                     ),
@@ -482,6 +493,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
         if (currentFieldType == AddressFieldType.phoneNumber &&
             kPhoneNumberConfig.enablePhoneNumberValidation) {
           return InternationalPhoneNumberInput(
+
             /// Auto focus first field if it's empty.
             autoFocus:
             index == 0 && (currentFieldController?.text.isEmpty ?? false),
@@ -511,10 +523,12 @@ class _ShippingAddressState extends State<ShippingAddress> {
               return validateField(val, fieldConfig, currentFieldType);
             },
             onSaved: (value) {
+              print("xcvxcvcx${value}");
               onTextFieldSaved(
                 value.phoneNumber?.replaceFirst(value.dialCode ?? '', ''),
                 currentFieldType,
               );
+
             },
             onInputChanged: selectedCountryModel.onInputChanged,
             onInputValidated: (value) {},
@@ -539,6 +553,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
             ),
           );
         }
+
 
         return TextFormField(
           /// Auto focus first field if it's empty.

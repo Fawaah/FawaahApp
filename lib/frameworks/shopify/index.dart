@@ -338,6 +338,8 @@ class ShopifyWidget extends BaseFrameworks
           ? Provider.of<UserModel>(context, listen: false).user!.cookie
           : null;
       var langCode = Provider.of<AppModel>(context, listen: false).langCode;
+
+      print("maxsteeal${langCode}");
       Provider.of<ShippingMethodModel>(context, listen: false)
           .getShippingMethods(
         cartModel: cartModel,

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -80,7 +81,12 @@ Future<void> initBoxes() async {
   await SecureStorage().init();
 
   final subDir = ServerConfig().isBuilder ? 'FluxBuilder' : null;
+  // var path = Directory.current.path;
+
+   // Hive.init(path);
+
   await Hive.initFlutter(subDir);
+
 
   await SettingsBox().init();
   await UserBox().init();

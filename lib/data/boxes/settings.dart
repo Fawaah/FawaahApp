@@ -7,6 +7,8 @@ class SettingsBox extends FluxBox {
 
   SettingsBox._internal();
 
+
+
   @override
   String get boxKey => BoxKeys.hiveSettingsBox;
 }
